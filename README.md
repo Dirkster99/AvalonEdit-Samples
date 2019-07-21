@@ -1,4 +1,4 @@
-# AvalonEditSamples
+# AvalonEdit Samples
 Implements a sample projects to demo the [AvalonEdit](https://github.com/icsharpcode/AvalonEdit) control with extensions.
 
 # Demo Projects

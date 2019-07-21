@@ -1,6 +1,5 @@
 
-Overview
---------
+# Overview
 
 This demo project implements the basic features of the 00_MVVMDemo project and adds the
 
@@ -12,3 +11,9 @@ to it.
   or 
 
 - Press the Control Key and mouse wheel to zoom text size in or out.
+
+## 100% Zoom Scale
+![](screenshot.png)
+
+## More than 100% Zoom Scale
+![](screenshot1.png)

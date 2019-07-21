@@ -20,6 +20,18 @@ shows how the display font can be scalled with interactive means like
 - the Scale up/scale down (two finger) gesture on your touch-pad, or 
 - Control Key and mouse wheel to zoom text size in or out.
 
+## 14 Scale Font Demo
+
+The [14 ScaleFontDemo](https://github.com/Dirkster99/AvalonEdit-Samples/tree/master/source/14_ScaleFontDemo) project
+implements the [10 ScaleFontDemo](https://github.com/Dirkster99/AvalonEdit-Samples/tree/master/source/10_ScaleFontDemo) project
+and adds a custom scalling control from the
+[UnitComboLib](https://github.com/Dirkster99/UnitComboLib) project.
+
+- Use The UnitComboBox in the left/lower corner of the MainWindow to change the FontSize
+  according to:  
+  - Points or  
+  - Percentage scales.
+
 ## 88 MVVM ThemedDemo
 
 The [88 MVVM ThemedDemo](https://github.com/Dirkster99/AvalonEdit-Samples/tree/master/source/88_MVVM%20ThemedDemo) project shows how syntax highlighting can be integrated into WPF Theming without using

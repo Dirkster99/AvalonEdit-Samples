@@ -1,7 +1,5 @@
-[![Build status](https://ci.appveyor.com/api/projects/status/s19eint5cqhjxh5h/branch/master?svg=true)](https://ci.appveyor.com/project/Dirkster99/avalonedithighlightingthemes/branch/master) [![Release](https://img.shields.io/github/release/Dirkster99/AvalonEditHighlightingThemes.svg)](https://github.com/Dirkster99/AvalonEditHighlightingThemes/releases/latest) [![NuGet](https://img.shields.io/nuget/dt/Dirkster.HL.svg)](http://nuget.org/packages/Dirkster.HL)
-
 # AvalonEditSamples
-Implements a sample projects to demo the [AvalonEdit](https://github.com/icsharpcode/AvalonEdit) control with MVVM (extension) scenarious
+Implements a sample projects to demo the [AvalonEdit](https://github.com/icsharpcode/AvalonEdit) control with extensions.
 
 # Demo Projects
 

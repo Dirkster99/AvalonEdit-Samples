@@ -16,8 +16,17 @@ for an improved solution that coordinates:
 1) Dark/Light/True Blue WPF themes
 2) with an appropriate Syntax Highlighting Theme.
 
-## Dark Application Theme
-![](screenshot_Dark.png)
-
 ## Light Application Theme
+
+Standard highlighting definitions are geard towards **Light** application theming which is why the Light theme looks perfect.
+
 ![](screenshot_Light.png)
+
+## Dark Application Theme
+
+Standard highlighting definitions are geard towards **Light** application theming which is why the
+Dark theme looks **badly colored** and in some cases **unreadable**. Please refer to the
+[AvalonEditHighlightingThemes](https://github.com/Dirkster99/AvalonEditHighlightingThemes)
+repository for a solution that can handle Dark and Light themes with corresponding highlighting definitions.
+
+![](screenshot_Dark.png)

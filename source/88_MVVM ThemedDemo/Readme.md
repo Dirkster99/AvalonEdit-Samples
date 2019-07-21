@@ -1,6 +1,5 @@
 
-Overview
---------
+# Overview
 
 This project shows how syntax highlighting can be integrated into WPF Theming without using
 custom highlighting definitions per theme.
@@ -16,3 +15,9 @@ https://github.com/Dirkster99/AvalonEditHighlightingThemes
 for an improved solution that coordinates:
 1) Dark/Light/True Blue WPF themes
 2) with an appropriate Syntax Highlighting Theme.
+
+## Dark Application Theme
+![](screenshot_Dark.png)
+
+## Light Application Theme
+![](screenshot_Light.png)

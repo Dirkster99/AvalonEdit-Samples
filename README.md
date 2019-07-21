@@ -12,6 +12,14 @@ The [00 MVVMDemo](https://github.com/Dirkster99/AvalonEdit-Samples/tree/master/s
 
 This demo project is the base project for all other sample projects in this repository and [Dirkster99/AvalonEditHighlightingThemes](https://github.com/Dirkster99/AvalonEditHighlightingThemes).
 
+## 10 Scale Font Demo
+
+The [10 ScaleFontDemo](https://github.com/Dirkster99/AvalonEdit-Samples/tree/master/source/10_ScaleFontDemo) project 
+shows how the display font can be scalled with interactive means like
+
+- the Scale up/scale down (two finger) gesture on your touch-pad, or 
+- Control Key and mouse wheel to zoom text size in or out.
+
 ## 88 MVVM ThemedDemo
 
 The [88 MVVM ThemedDemo](https://github.com/Dirkster99/AvalonEdit-Samples/tree/master/source/88_MVVM%20ThemedDemo) project shows how syntax highlighting can be integrated into WPF Theming without using

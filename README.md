@@ -32,6 +32,15 @@ and adds a custom scalling control from the
   - Points or  
   - Percentage scales.
 
+## 20 Highlight Current Line Renderer
+
+The [20_HighlightCurrentLineRenderer](https://github.com/Dirkster99/AvalonEdit-Samples/tree/master/source/20_HighlightCurrentLineRenderer)
+project shows how the currently edit line can be highlighted with a
+current
+[HighlightCurrentLineBackgroundRenderer](https://github.com/Dirkster99/AvalonEdit-Samples/tree/master/source/20_HighlightCurrentLineRenderer/TextEditLib/Extensions/HighlightCurrentLineBackgroundRenderer.cs)
+extension.
+
+
 ## 88 MVVM ThemedDemo
 
 The [88 MVVM ThemedDemo](https://github.com/Dirkster99/AvalonEdit-Samples/tree/master/source/88_MVVM%20ThemedDemo) project shows how syntax highlighting can be integrated into WPF Theming without using

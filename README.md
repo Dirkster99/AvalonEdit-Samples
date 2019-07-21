@@ -5,7 +5,7 @@ Implements a sample projects to demo the [AvalonEdit](https://github.com/icsharp
 
 ## 00 MVVMDemo
 
-The [00 MVVMDemo]() project gives a simple MVVM/WPF demo application that implements some simple features like:
+The [00 MVVMDemo](https://github.com/Dirkster99/AvalonEdit-Samples/tree/master/source/88_MVVM%20ThemedDemo) project gives a simple MVVM/WPF demo application that implements some simple features like:
 1) Text loading
 2) Editing (Copy, Paste, Cut, Undo, Redo), and
 3) Highlighting.
@@ -17,7 +17,7 @@ This demo project is the base project for all other sample projects in this repo
 The 88 MVVM ThemedDemo project shows how syntax highlighting can be integrated into WPF Theming without using
 custom highlighting definitions per theme.
 
-This solution is just an intermediate step from the [00 MVVMDemo]() solution to give you an understanding
+This solution is just an intermediate step from the [00 MVVMDemo](https://github.com/Dirkster99/AvalonEdit-Samples/tree/master/source/88_MVVM%20ThemedDemo) solution to give you an understanding
 of what might be necessary to add WPF theming to an existing MVVM application. This demo solution also
 shows how bad it is to use highlighting definitions for a Light WPF theme on a Dark WPF theme and vice
 versa.

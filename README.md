@@ -29,8 +29,7 @@ for an improved solution that coordinates:
 
 ## Other AvalonEdit Demo Projects:
 
-More demo projects may be listed at the AvalonEdit's Wiki page
-- [AvalonEdit](https://github.com/icsharpcode/AvalonEdit/wiki/Samples-and-Articles)
+More demo projects may be listed at the [AvalonEdit's Wiki page](https://github.com/icsharpcode/AvalonEdit/wiki/Samples-and-Articles)
 
-- [https://github.com/siegfriedpammer/AvalonEditSamples](Demonstrates how to add advanced textmarkers to AvalonEdit)
+- [Demonstrates how to add advanced textmarkers to AvalonEdit](https://github.com/siegfriedpammer/AvalonEditSamples)
 - [Dirkster99/AvalonEditHighlightingThemes](https://github.com/Dirkster99/AvalonEditHighlightingThemes) Extension implements its own highlighting manager that extends the classic way of handling highlighting definitions.

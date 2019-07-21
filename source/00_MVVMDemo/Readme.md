@@ -1,6 +1,5 @@
 
-Overview
---------
+# Overview
 
 This project shows how text editing with syntax highlighting can be integrated into an MVVM/WPF
 application. The demo application supports:
@@ -12,3 +11,5 @@ application. The demo application supports:
 SAVING edited text is not supported in this version of the demo application. This demo application
 is just a base starting point for other more complicated developments that involve theming with WPF,
 themeable highlighting, and other extensions, such as, zooming text size during editing.
+
+![](screenshot.png)

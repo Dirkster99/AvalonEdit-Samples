@@ -40,6 +40,16 @@ current
 [HighlightCurrentLineBackgroundRenderer](https://github.com/Dirkster99/AvalonEdit-Samples/tree/master/source/20_HighlightCurrentLineRenderer/TextEditLib/Extensions/HighlightCurrentLineBackgroundRenderer.cs)
 extension.
 
+## 30 CursorPosition Edit Status
+
+The [30_CursorPosition_Edit_Status](https://github.com/Dirkster99/AvalonEdit-Samples/tree/master/source/30_CursorPosition_Edit_Status)
+
+demonstrates a status display in the lower right corner of the status bar (when a document is loaded).
+
+Items shown are:
+- Cursor position (Ln and Col)
+- OverstrikeMode (whether user overwrites available content with next character typed or not)
+- Encoding (UTF 8, Western European (Windows), etc) - See also Tool Tip of this element
 
 ## 88 MVVM ThemedDemo
 

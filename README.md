@@ -69,6 +69,3 @@ for an improved solution that coordinates:
 ## Other AvalonEdit Demo Projects:
 
 More demo projects may be listed at the [AvalonEdit's Wiki page](https://github.com/icsharpcode/AvalonEdit/wiki/Samples-and-Articles)
-
-- [Demonstrates how to add advanced textmarkers to AvalonEdit](https://github.com/siegfriedpammer/AvalonEditSamples)
-- [Dirkster99/AvalonEditHighlightingThemes](https://github.com/Dirkster99/AvalonEditHighlightingThemes) Extension implements its own highlighting manager that extends the classic way of handling highlighting definitions.

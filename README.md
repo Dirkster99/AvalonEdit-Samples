@@ -51,6 +51,8 @@ Items shown are:
 - OverstrikeMode (whether user overwrites available content with next character typed or not)
 - Encoding (UTF 8, Western European (Windows), etc) - See also Tool Tip of this element
 
+## 40 View Options
+
 The [40_View_Options](https://github.com/Dirkster99/AvalonEdit-Samples/tree/master/source/40_View_Options)
 
 project demonstrates editing options, such as:

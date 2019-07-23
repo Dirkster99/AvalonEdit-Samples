@@ -9,6 +9,7 @@ namespace AEDemo.ViewModels
     using System.Windows.Input;
     using AEDemo.ViewModels.Base;
     using ICSharpCode.AvalonEdit;
+    using AEDemo.Enums;
 
     public class DocumentRootViewModel : Base.ViewModelBase
     {
@@ -22,10 +23,12 @@ namespace AEDemo.ViewModels
 
         private ICommand _HighlightingChangeCommand;
         private IHighlightingDefinition _HighlightingDefinition;
-        private int _SynchronizedColumn;
-        private int _SynchronizedLine;
-        private Encoding _FileEncoding;
+        private ICommand _DisableHighlightingCommand;
+        private ICommand _toggleEditorOptionCommand;
+
         private bool _IsContentLoaded;
+        private bool _WordWrap;
+        private bool _ShowLineNumbers;
         private readonly TextEditorOptions _TextOptions;
         #endregion fields
 
@@ -39,7 +42,6 @@ namespace AEDemo.ViewModels
             _TextOptions.AllowToggleOverstrikeMode = true;
 
             Document = new TextDocument();
-            _FileEncoding = Encoding.Default;
         }
         #endregion ctors
 
@@ -132,6 +134,19 @@ namespace AEDemo.ViewModels
             }
         }
 
+        public ICommand ToggleEditorOptionCommand
+        {
+            get
+            {
+                return _toggleEditorOptionCommand ??
+                            (_toggleEditorOptionCommand = new RelayCommand<ToggleEditorOption>
+                               ((p) => OnToggleEditorOption(p),
+                                (p) => { return OnToggleEditorOptionCanExecute(p); }
+                               )
+                            );
+            }
+        }
+
         #region Highlighting Definition
         /// <summary>
         /// Gets a copy of all highlightings.
@@ -204,75 +219,113 @@ namespace AEDemo.ViewModels
         }
         #endregion Highlighting Definition
 
-        #region Synchronized Caret Position
         /// <summary>
-        /// Gets/sets the caret positions column from the last time when the
-        /// caret position in the left view has been synchronzied with the right view (or vice versa).
+        /// Gets a command that turns off editors syntax highlighting.
         /// </summary>
-        public int SynchronizedColumn
+        public ICommand DisableHighlightingCommand
         {
             get
             {
-                return _SynchronizedColumn;
+                if (_DisableHighlightingCommand == null)
+                {
+                    _DisableHighlightingCommand = new RelayCommand<object>(
+                        (p) => { HighlightingDefinition = null; },
+                        (p) =>
+                        {
+                            if (HighlightingDefinition != null)
+                                return true;
+
+                            return false;
+                        }
+                        );
+                }
+
+                return _DisableHighlightingCommand;
             }
+        }
+
+        /// <summary>
+        /// Get/set whether word wrap is currently activated or not.
+        /// </summary>
+        public bool WordWrap
+        {
+            get { return _WordWrap; }
 
             set
             {
-                if (_SynchronizedColumn != value)
+                if (_WordWrap != value)
                 {
-                    _SynchronizedColumn = value;
-                    RaisePropertyChanged(() => SynchronizedColumn);
+                    _WordWrap = value;
+                    RaisePropertyChanged(() => WordWrap);
                 }
             }
         }
 
         /// <summary>
-        /// Gets/sets the caret positions line from the last time when the
-        /// caret position in the left view has been synchronzied with the right view (or vice versa).
+        /// Get/set whether line numbers are currently shown or not.
         /// </summary>
-        public int SynchronizedLine
+        public bool ShowLineNumbers
         {
-            get
-            {
-                return _SynchronizedLine;
-            }
+            get { return _ShowLineNumbers; }
 
             set
             {
-                if (_SynchronizedLine != value)
+                if (_ShowLineNumbers != value)
                 {
-                    _SynchronizedLine = value;
-                    RaisePropertyChanged(() => SynchronizedLine);
+                    _ShowLineNumbers = value;
+                    RaisePropertyChanged(() => ShowLineNumbers);
                 }
             }
         }
-        #endregion Synchronized Caret Position
 
         /// <summary>
-        /// Get/set file encoding of current text file.
+        /// Get/set whether the end of each line is currently shown or not.
         /// </summary>
-        public Encoding FileEncoding
+        public bool ShowEndOfLine               // Toggle state command
         {
-            get { return _FileEncoding; }
+            get { return TextOptions.ShowEndOfLine; }
 
-            protected set
+            set
             {
-                if (!Equals(_FileEncoding, value))
+                if (TextOptions.ShowEndOfLine != value)
                 {
-                    _FileEncoding = value;
-                    RaisePropertyChanged(() => FileEncoding);
-                    RaisePropertyChanged(() => FileEncodingDescription);
+                    TextOptions.ShowEndOfLine = value;
+                    RaisePropertyChanged(() => ShowEndOfLine);
                 }
             }
         }
 
-        public string FileEncodingDescription
+        /// <summary>
+        /// Get/set whether the spaces are highlighted or not.
+        /// </summary>
+        public bool ShowSpaces               // Toggle state command
         {
-            get
+            get { return TextOptions.ShowSpaces; }
+
+            set
             {
-                return
-                    string.Format("{0}, Header: {1} Body: {2}",
-                    _FileEncoding.EncodingName, _FileEncoding.HeaderName, _FileEncoding.BodyName);
+                if (TextOptions.ShowSpaces != value)
+                {
+                    TextOptions.ShowSpaces = value;
+                    RaisePropertyChanged(() => ShowSpaces);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Get/set whether the tabulator characters are highlighted or not.
+        /// </summary>
+        public bool ShowTabs               // Toggle state command
+        {
+            get { return TextOptions.ShowTabs; }
+
+            set
+            {
+                if (TextOptions.ShowTabs != value)
+                {
+                    TextOptions.ShowTabs = value;
+                    RaisePropertyChanged(() => ShowTabs);
+                }
             }
         }
 
@@ -288,6 +341,8 @@ namespace AEDemo.ViewModels
         #region methods
         public bool LoadDocument(string paramFilePath)
         {
+            IsContentLoaded = false;
+
             if (File.Exists(paramFilePath))
             {
                 var hlManager = HighlightingManager.Instance;
@@ -307,61 +362,67 @@ namespace AEDemo.ViewModels
                                        "Change the file access permissions or save the file in a different location if you want to edit it.";
                 }
 
-                var fileEncoding = GetEncoding(paramFilePath);
-
                 using (FileStream fs = new FileStream(paramFilePath, FileMode.Open, FileAccess.Read, FileShare.Read))
                 {
-                    using (StreamReader reader = FileReader.OpenStream(fs, fileEncoding))
+                    using (StreamReader reader = FileReader.OpenStream(fs, Encoding.UTF8))
                     {
                         Document = new TextDocument(reader.ReadToEnd());
-
-                        FileEncoding = reader.CurrentEncoding; // assign encoding after ReadToEnd() so that the StreamReader can autodetect the encoding
                     }
                 }
 
                 FilePath = paramFilePath;
                 IsContentLoaded = true;
-
-                return true;
             }
 
-            return false;
+            return IsContentLoaded;
         }
 
-        /// <summary>
-        /// Determines a text file's encoding by analyzing its byte order mark (BOM).
-        /// Defaults to ASCII when detection of the text file's endianness fails.
-        /// 
-        /// source: https://stackoverflow.com/questions/3825390/effective-way-to-find-any-files-encoding
-        /// </summary>
-        /// <param name="filename">The text file to analyze.</param>
-        /// <returns>The detected encoding.</returns>
-        public static Encoding GetEncoding(string filename)
+        private void OnToggleEditorOption(object parameter)
         {
-            // Read the BOM
-            var bom = new byte[4];
-            using (var file = new FileStream(filename, FileMode.Open, FileAccess.Read))
+            if (parameter == null)
+                return;
+
+            if ((parameter is ToggleEditorOption) == false)
+                return;
+
+            ToggleEditorOption t = (ToggleEditorOption)parameter;
+
+            switch (t)
             {
-                file.Read(bom, 0, 4);
+                case ToggleEditorOption.WordWrap:
+                    this.WordWrap = !this.WordWrap;
+                    break;
+
+                case ToggleEditorOption.ShowLineNumber:
+                    this.ShowLineNumbers = !this.ShowLineNumbers;
+                    break;
+
+                case ToggleEditorOption.ShowSpaces:
+                    this.TextOptions.ShowSpaces = !this.TextOptions.ShowSpaces;
+                    break;
+
+                case ToggleEditorOption.ShowTabs:
+                    this.TextOptions.ShowTabs = !this.TextOptions.ShowTabs;
+                    break;
+
+                case ToggleEditorOption.ShowEndOfLine:
+                    this.TextOptions.ShowEndOfLine = !this.TextOptions.ShowEndOfLine;
+                    break;
+
+                default:
+                    break;
             }
+        }
 
-            // Analyze the BOM
-            if (bom[0] == 0x2b && bom[1] == 0x2f && bom[2] == 0x76)
-                return Encoding.UTF7;
+        private bool OnToggleEditorOptionCanExecute(object parameter)
+        {
+            if (parameter == null)
+                return false;
 
-            if (bom[0] == 0xef && bom[1] == 0xbb && bom[2] == 0xbf)
-                return Encoding.UTF8;
+            if (parameter is ToggleEditorOption)
+                return true;
 
-            if (bom[0] == 0xff && bom[1] == 0xfe)
-                return Encoding.Unicode; //UTF-16LE
-
-            if (bom[0] == 0xfe && bom[1] == 0xff)
-                return Encoding.BigEndianUnicode; //UTF-16BE
-
-            if (bom[0] == 0 && bom[1] == 0 && bom[2] == 0xfe && bom[3] == 0xff)
-                return Encoding.UTF32;
-
-            return Encoding.Default;
+            return false;
         }
         #endregion methods
     }

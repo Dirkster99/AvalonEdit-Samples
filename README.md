@@ -44,12 +44,20 @@ extension.
 
 The [30_CursorPosition_Edit_Status](https://github.com/Dirkster99/AvalonEdit-Samples/tree/master/source/30_CursorPosition_Edit_Status)
 
-demonstrates a status display in the lower right corner of the status bar (when a document is loaded).
+project demonstrates a status display in the lower right corner of the status bar (when a document is loaded).
 
 Items shown are:
 - Cursor position (Ln and Col)
 - OverstrikeMode (whether user overwrites available content with next character typed or not)
 - Encoding (UTF 8, Western European (Windows), etc) - See also Tool Tip of this element
+
+The [40_View_Options](https://github.com/Dirkster99/AvalonEdit-Samples/tree/master/source/40_View_Options)
+
+project demonstrates editing options, such as:
+
+- toogle Word Wrap
+- Toggle Display of Line Numbers
+- Toggle display of white spaces, such as, End of Line, Space character, and Tab character
 
 ## 88 MVVM ThemedDemo
 

@@ -149,6 +149,7 @@
         </StackPanel>
 
         <Grid
+            xmlns:avalonEdit="http://icsharpcode.net/sharpdevelop/avalonedit"
             Grid.Row="1"
             Grid.Column="0"
             Grid.ColumnSpan="2"
@@ -156,13 +157,20 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
-
+            <Grid.Resources>
+                <!--
+                        This resource is necessary to make sure that AvalonEdit always has valid options
+                        (even when there is no document if options bound to the editor control)
+                    -->
+                <avalonEdit:TextEditorOptions x:Key="TextEditOptions"/>
+            </Grid.Resources>
             <Grid
                 xmlns:avEditEx="clr-namespace:TextEditLib;assembly=TextEditLib"
                 Grid.Row="0">
                 <avEditEx:TextEdit
                     Name="avEdit"
                     DataContext="{Binding DocumentRoot}"
+                    Options="{Binding TextOptions, FallbackValue={StaticResource TextEditOptions}}"
                     Document="{Binding Document, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
                     IsModified="{Binding Path=IsDirty, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                     IsReadOnly="{Binding IsReadOnly, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"

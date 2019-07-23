@@ -39,8 +39,6 @@
         {
             this.Loaded += TextEdit_Loaded;
             this.Unloaded += TextEdit_Unloaded;
-
-            this.Options.AllowToggleOverstrikeMode = true;
         }
         #endregion ctors
 

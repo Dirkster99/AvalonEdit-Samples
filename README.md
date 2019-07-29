@@ -64,8 +64,7 @@ project demonstrates editing options, such as:
 ## 55 AE Commands
 
 The [55_AE_Commands](https://github.com/Dirkster99/AvalonEdit-Samples/tree/master/source/55_AE_Commands)
-
-This demo project implements the basic features of the 00_MVVMDemo project in a seperate
+project implements the basic features of the 00_MVVMDemo project in a seperate
 control library called TextEditLib and adds the followinf features:
 
 - Text Folding for C#, Java, XML, XAML

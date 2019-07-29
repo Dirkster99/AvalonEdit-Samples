@@ -14,6 +14,6 @@ control library called TextEditLib and adds the followinf features:
 ![](screenshot1.png)
 
 ## Advanced Commands in ContextMenu
-![](screenshot1.png)
-
 ![](screenshot2.png)
+
+![](screenshot3.png)

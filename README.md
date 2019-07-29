@@ -61,6 +61,17 @@ project demonstrates editing options, such as:
 - Toggle Display of Line Numbers
 - Toggle display of white spaces, such as, End of Line, Space character, and Tab character
 
+## 55 AE Commands
+
+The [55_AE_Commands](https://github.com/Dirkster99/AvalonEdit-Samples/tree/master/source/55_AE_Commands)
+
+This demo project implements the basic features of the 00_MVVMDemo project in a seperate
+control library called TextEditLib and adds the followinf features:
+
+- Text Folding for C#, Java, XML, XAML
+- Advanced Command Bindings via ContextMenu (Collapse All Text Folds, Expand All Folds)
+- Integration of standard AvalonEdit commands, such as, Replace Tabs with Spaces etc.
+
 ## 88 MVVM ThemedDemo
 
 The [88 MVVM ThemedDemo](https://github.com/Dirkster99/AvalonEdit-Samples/tree/master/source/88_MVVM%20ThemedDemo) project shows how syntax highlighting can be integrated into WPF Theming without using

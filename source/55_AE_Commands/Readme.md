@@ -2,7 +2,7 @@
 # Overview
 
 This demo project implements the basic features of the 00_MVVMDemo project in a seperate
-control library called TextEditLib and adds the followinf features:
+control library called **TextEditLib** and adds the following features:
 
 - Text Folding for C#, Java, XML, XAML
 - Advanced Command Bindings via ContextMenu (Collapse All Text Folds, Expand All Folds)

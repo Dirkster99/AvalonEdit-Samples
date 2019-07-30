@@ -468,9 +468,10 @@ namespace AEDemo.ViewModels
             {
                 var hlManager = HighlightingManager.Instance;
 
-                Document = new TextDocument();
-                string extension = System.IO.Path.GetExtension(paramFilePath);
-                HighlightingDefinition = hlManager.GetDefinitionByExtension(extension);
+                if (Document == null)
+                    Document = new TextDocument();
+                else
+                    Document.Text = string.Empty;
 
                 IsDirty = false;
                 IsReadOnly = false;
@@ -483,25 +484,29 @@ namespace AEDemo.ViewModels
                                        "Change the file access permissions or save the file in a different location if you want to edit it.";
                 }
 
-                var fileEncoding = GetEncoding(paramFilePath);
-
                 using (FileStream fs = new FileStream(paramFilePath, FileMode.Open, FileAccess.Read, FileShare.Read))
                 {
-                    using (StreamReader reader = FileReader.OpenStream(fs, fileEncoding))
+                    using (StreamReader reader = FileReader.OpenStream(fs, Encoding.UTF8))
                     {
-                        Document = new TextDocument(reader.ReadToEnd());
-
-                        FileEncoding = reader.CurrentEncoding; // assign encoding after ReadToEnd() so that the StreamReader can autodetect the encoding
+                        Document.Text = reader.ReadToEnd();
                     }
                 }
 
                 FilePath = paramFilePath;
-                IsContentLoaded = true;
+
+                // Setting this to null and then to some useful value ensures that the Foldings work
+                // Installing Folding Manager is invoked via HighlightingChange
+                // (so this works even when changing from test.XML to test1.XML)
+                HighlightingDefinition = null;
+                string extension = System.IO.Path.GetExtension(paramFilePath);
+                HighlightingDefinition = hlManager.GetDefinitionByExtension(extension);
+
+                return true;
             }
 
-            return IsContentLoaded;
+            return false;
         }
-		
+
         /// <summary>
         /// Determines a text file's encoding by analyzing its byte order mark (BOM).
         /// Defaults to ASCII when detection of the text file's endianness fails.

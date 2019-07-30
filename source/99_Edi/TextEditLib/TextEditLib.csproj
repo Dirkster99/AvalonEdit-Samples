@@ -78,6 +78,7 @@
   <ItemGroup>
     <Compile Include="Enums\ToggleEditorOption.cs" />
     <Compile Include="Extensions\HighlightCurrentLineBackgroundRenderer.cs" />
+    <Compile Include="Foldings\BraceFoldingStrategy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -91,6 +92,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="TextEditCommands.cs" />
     <Compile Include="Themes\ResourceKeys.cs" />
     <Compile Include="TextEdit.xaml.cs">
       <DependentUpon>TextEdit.xaml</DependentUpon>

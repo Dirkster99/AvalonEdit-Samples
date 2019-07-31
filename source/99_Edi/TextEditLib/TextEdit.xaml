@@ -62,7 +62,7 @@
                             </Setter>
                         </Style>
                     </ControlTemplate.Resources>
-                    <Border Background="{TemplateBinding Background}"
+                    <Border Background="Transparent"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}">
                         <ScrollViewer
@@ -74,7 +74,7 @@
 						        Content="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=TextArea}"
 						        VerticalContentAlignment="Top"
 						        HorizontalContentAlignment="Left"
-						        Background="{TemplateBinding Background}"
+						        Background="Transparent"
 						        Padding="{TemplateBinding Padding}"
 						        BorderBrush="{TemplateBinding BorderBrush}"
 					            BorderThickness="{TemplateBinding BorderThickness}">
@@ -84,7 +84,7 @@
                                             BorderThickness="{TemplateBinding BorderThickness}"
                                             HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
                                             VerticalAlignment="{TemplateBinding VerticalAlignment}">
-                                        <Grid Background="{TemplateBinding Background}"
+                                        <Grid Background="Transparent"
                                               HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
                                               VerticalAlignment="{TemplateBinding VerticalAlignment}">
                                             <Grid.ColumnDefinitions>
@@ -96,14 +96,20 @@
                                                 <RowDefinition Height="Auto"/>
                                             </Grid.RowDefinitions>
 
-                                            <!-- Display TextEditor content in upper left corner -->
-                                            <ScrollContentPresenter Grid.Column="0" Grid.Row="0"
-                                                                    KeyboardNavigation.DirectionalNavigation="Local"
-                                                                    CanContentScroll="True"
-                                                                    CanHorizontallyScroll="True"
-                                                                    CanVerticallyScroll="True"
-                                                                    Content="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:TextEdit}}, Path=TextArea}"
+                                            <!-- Ensure correct background color for TextEditor area only -->
+                                            <Border
+                                                Grid.Column="0" Grid.Row="0"
+                                                BorderThickness="0"
+                                                Background="{DynamicResource {x:Static reskeys:ResourceKeys.EditorBackground}}">
+                                                <!-- Display TextEditor content in upper left corner -->
+                                                <ScrollContentPresenter
+                                                    KeyboardNavigation.DirectionalNavigation="Local"
+                                                    CanContentScroll="True"
+                                                    CanHorizontallyScroll="True"
+                                                    CanVerticallyScroll="True"
+                                                    Content="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:TextEdit}}, Path=TextArea}"
                                             />
+                                            </Border>
 
                                             <!-- Display Vertical Scrollbar to the right -->
                                             <ScrollBar Name="PART_VerticalScrollBar"
@@ -114,9 +120,7 @@
                                                        Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}"/>
 
                                             <!-- Display mini-toolbar and Horizontal scrollbar at the bottom of the view -->
-                                            <!-- Using DialogBackgroundBrush since Editor can use a WPF Theme independent background color -->
-                                            <!-- TODO XXX Background="{DynamicResource DialogBackgroundBrush}" -->
-                                            <Grid Grid.Column="0" Grid.Row="1">
+                                            <Grid Grid.Column="0" Grid.Row="1" Background="Transparent">
                                                 <Grid.ColumnDefinitions>
                                                     <ColumnDefinition Width="Auto" />
                                                     <ColumnDefinition Width="*" />
@@ -124,7 +128,7 @@
 
                                                 <unit:UnitCombobox DataContext="{Binding SizeUnitLabel}"
                                                                    FontSize="10"
-                                                                   Height="{Binding ElementName=PART_HorizontalScrollBar}"
+                                                                   Height="{Binding ElementName=PART_HorizontalScrollBar, Path=ActualHeight}"
                                                                    ItemsSource="{Binding SelectedItem.DefaultValues}"
                                                                    ToolTip="{Binding ValueTip}"
                                                                    HorizontalAlignment="Stretch" VerticalAlignment="Center"
@@ -149,12 +153,12 @@
                                                            Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}"/>
                                             </Grid>
                                             <!-- Using DialogBackgroundBrush since Editor can use a WPF Theme independent background color -->
-                                            <DockPanel Grid.Column="1" Grid.Row="1"
+                                            <!--DockPanel Grid.Column="1" Grid.Row="1"
                                                        LastChildFill="false"
                                                        Background="White">
                                                 <Rectangle Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}" Width="1" Fill="White" DockPanel.Dock="Left" />
                                                 <Rectangle Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}" Height="1" Fill="White" DockPanel.Dock="Top" />
-                                            </DockPanel>
+                                            </DockPanel-->
                                         </Grid>
                                     </Border>
                                 </ControlTemplate>

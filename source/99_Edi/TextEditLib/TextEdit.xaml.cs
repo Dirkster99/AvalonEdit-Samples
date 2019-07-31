@@ -80,6 +80,9 @@
         {
             Loaded += TextEdit_Loaded;
             Unloaded += TextEdit_Unloaded;
+
+            CommandBindings.Add(new CommandBinding(TextEditCommands.FoldsCollapseAll, TextEdit.FoldsCollapseAll, TextEdit.FoldsColapseExpandCanExecute));
+            CommandBindings.Add(new CommandBinding(TextEditCommands.FoldsExpandAll, TextEdit.FoldsExpandAll, TextEdit.FoldsColapseExpandCanExecute));
         }
         #endregion ctors
 

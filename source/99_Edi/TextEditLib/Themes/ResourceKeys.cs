@@ -29,6 +29,23 @@ namespace TextEditLib.Themes
         public static readonly ComponentResourceKey EditorLinkTextBackgroundBrush = new ComponentResourceKey(typeof(ResourceKeys), "EditorLinkTextBackgroundBrush");
 
         public static readonly ComponentResourceKey HighlightTextBrushKey = new ComponentResourceKey(typeof(ResourceKeys), "HighlightTextBrushKey");
+
+        #region DiffView Currentline Keys
+        /// <summary>
+        /// Gets the background color for highlighting for the currently highlighed line.
+        /// </summary>
+        public static readonly ComponentResourceKey EditorCurrentLineBackgroundBrushKey = new ComponentResourceKey(typeof(ResourceKeys), "EditorCurrentLineBackgroundBrushKey");
+
+        /// <summary>
+        /// Gets the border color for highlighting for the currently highlighed line.
+        /// </summary>
+        public static readonly ComponentResourceKey EditorCurrentLineBorderBrushKey = new ComponentResourceKey(typeof(ResourceKeys), "EditorCurrentLineBorderBrushKey");
+
+        /// <summary>
+        /// Gets the border thickness for highlighting for the currently highlighed line.
+        /// </summary>
+        public static readonly ComponentResourceKey EditorCurrentLineBorderThicknessKey = new ComponentResourceKey(typeof(ResourceKeys), "EditorCurrentLineBorderThicknessKey");
+        #endregion DiffView Currentline Keys
         #endregion TextEditor BrushKeys
     }
 }

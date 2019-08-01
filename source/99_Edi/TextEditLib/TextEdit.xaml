@@ -17,6 +17,8 @@
         <Setter Property="Background" Value="{DynamicResource {x:Static reskeys:ResourceKeys.EditorBackground}}"/>
         <Setter Property="Foreground" Value="{DynamicResource {x:Static reskeys:ResourceKeys.EditorForeground}}"/>
         <Setter Property="LineNumbersForeground" Value="{DynamicResource {x:Static reskeys:ResourceKeys.EditorLineNumbersForeground}}"/>
+        <Setter Property="VerticalScrollBarVisibility" Value="Auto"/>
+        <Setter Property="HorizontalScrollBarVisibility" Value="Auto"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type local:TextEdit}">

@@ -385,7 +385,6 @@
         <Grid  Grid.Row="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="16"/><!-- Using this to ensure visibility of Window ResizeGrip -->
             </Grid.ColumnDefinitions>
             
             <StatusBar Grid.Column="0">

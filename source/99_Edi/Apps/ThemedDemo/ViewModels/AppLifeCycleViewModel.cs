@@ -34,7 +34,7 @@
             ,new Uri("/ThemedDemo;component/BindToMLib/MWindowLib/DarkLightBrushs.xaml", UriKind.RelativeOrAbsolute)
             ,new Uri("/TextEditLib;component/Themes/DarkBrushs.xaml", UriKind.RelativeOrAbsolute)
             ,new Uri("/UnitComboLib;component/Themes/DarkBrushs.xaml", UriKind.RelativeOrAbsolute)
-            ,new Uri("/TextEditLib;component/Themes/Icons.xaml", UriKind.RelativeOrAbsolute)
+            ,new Uri("/TextEditLib;component/Themes/DarkIcons.xaml", UriKind.RelativeOrAbsolute)
             ,new Uri("/ThemedDemo;component/BindToMLib/UnitComboLib_DarkLightBrushs.xaml", UriKind.RelativeOrAbsolute)
         };
 
@@ -46,7 +46,7 @@
             ,new Uri("/ThemedDemo;component/BindToMLib/MWindowLib/DarkLightBrushs.xaml", UriKind.RelativeOrAbsolute)
             ,new Uri("/TextEditLib;component/Themes/LightBrushs.xaml", UriKind.RelativeOrAbsolute)
             ,new Uri("/UnitComboLib;component/Themes/LightBrushs.xaml", UriKind.RelativeOrAbsolute)
-            ,new Uri("/TextEditLib;component/Themes/Icons.xaml", UriKind.RelativeOrAbsolute)
+            ,new Uri("/TextEditLib;component/Themes/LightIcons.xaml", UriKind.RelativeOrAbsolute)
             ,new Uri("/ThemedDemo;component/BindToMLib/UnitComboLib_DarkLightBrushs.xaml", UriKind.RelativeOrAbsolute)
         };
 

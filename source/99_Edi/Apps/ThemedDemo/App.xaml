@@ -7,6 +7,6 @@
              Theming definition code in AppLifeCycleViewModel.CreateDefaultsSettings()
              may define something else for runtime.
         -->
-        <ResourceDictionary Source="/TextEditLib;component/Themes/Icons.xaml"/>
+        <ResourceDictionary Source="/TextEditLib;component/Themes/LightIcons.xaml"/>
     </Application.Resources>
 </Application>

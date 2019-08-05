@@ -70,7 +70,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Themes\Icons.xaml">
+    <Page Include="Themes\DarkIcons.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\LightIcons.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -108,28 +112,59 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Themes\Icons\Copy.ico" />
+    <Resource Include="Themes\Icons\Light\Copy.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Themes\Icons\appbar.text.align.justify.png" />
-    <Content Include="Themes\Icons\Copy_16x.svg" />
-    <Content Include="Themes\Icons\Cut_16x.svg" />
+    <Resource Include="Themes\Icons\Dark\Cut.ico" />
+    <Content Include="Themes\Icons\Dark\Cut_16x.svg" />
+    <Resource Include="Themes\Icons\Dark\Paste.ico" />
+    <Content Include="Themes\Icons\Dark\Paste_16x.svg" />
+    <Resource Include="Themes\Icons\Dark\Undo.ico" />
+    <Resource Include="Themes\Icons\Dark\Redo.ico" />
+    <Content Include="Themes\Icons\Dark\Redo_16x.svg" />
+    <Resource Include="Themes\Icons\Dark\ShowLineNumbers.ico" />
+    <Resource Include="Themes\Icons\Dark\ShowEndOfLine.ico" />
+    <Content Include="Themes\Icons\Dark\ShowEndOfLine.svg" />
+    <Content Include="Themes\Icons\Dark\ShowLineNumbers_16x.svg" />
+    <Resource Include="Themes\Icons\Dark\ShowSpaces.ico" />
+    <Content Include="Themes\Icons\Dark\ShowSpaces_16x.svg" />
+    <Resource Include="Themes\Icons\Dark\TabStop.ico" />
+    <Content Include="Themes\Icons\Dark\TabStop_16x.svg" />
+    <Content Include="Themes\Icons\Dark\Undo_16x.svg" />
+    <Content Include="Themes\Icons\Light\Copy_16x.svg" />
+    <Content Include="Themes\Icons\Light\Cut_16x.svg" />
+    <Resource Include="Themes\Icons\Dark\desk-lamp.ico" />
+    <Resource Include="Themes\Icons\Dark\Copy.ico" />
+    <Content Include="Themes\Icons\Dark\Copy_16x.svg" />
+    <Content Include="Themes\Icons\Dark\desk-lamp.svg" />
+    <Resource Include="Themes\Icons\Dark\WordWrap.ico" />
+    <Resource Include="Themes\Icons\Dark\OpenFile.ico" />
+    <Content Include="Themes\Icons\Dark\OpenFile_16x.svg" />
+    <Content Include="Themes\Icons\Dark\WordWrap_16x.svg" />
     <Content Include="Themes\Icons\Delete_16x.svg" />
-    <Resource Include="Themes\Icons\desk-lamp-light.ico" />
-    <Content Include="Themes\Icons\OpenFile_16x.svg" />
-    <Content Include="Themes\Icons\Paste_16x.svg" />
-    <Content Include="Themes\Icons\Redo_16x.svg" />
-    <Resource Include="Themes\Icons\ShowEndOfLine.png" />
-    <Resource Include="Themes\Icons\ShowLineNumbers.png" />
-    <Resource Include="Themes\Icons\ShowSpace.png" />
-    <Resource Include="Themes\Icons\ShowTab.png" />
-    <Content Include="Themes\Icons\Undo_16x.svg" />
-    <Resource Include="Themes\Icons\Undo.ico" />
-    <Resource Include="Themes\Icons\Redo.ico" />
-    <Resource Include="Themes\Icons\Paste.ico" />
-    <Resource Include="Themes\Icons\OpenFile.ico" />
+    <Resource Include="Themes\Icons\Light\desk-lamp.ico" />
+    <Content Include="Themes\Icons\Light\desk-lamp.svg" />
+    <Resource Include="Themes\Icons\Light\WordWrap.ico" />
+    <Resource Include="Themes\Icons\Light\ShowLineNumbers.ico" />
+    <Resource Include="Themes\Icons\Light\ShowEndOfLine.ico" />
+    <Content Include="Themes\Icons\Light\ShowEndOfLine.svg" />
+    <Content Include="Themes\Icons\Light\ShowLineNumbers_16x.svg" />
+    <Resource Include="Themes\Icons\Light\ShowSpaces.ico" />
+    <Content Include="Themes\Icons\Light\ShowSpaces_16x.svg" />
+    <Resource Include="Themes\Icons\Light\TabStop.ico" />
+    <Content Include="Themes\Icons\Light\TabStop_16x.svg" />
+    <Content Include="Themes\Icons\Light\WordWrap_16x.svg" />
+    <Content Include="Themes\Icons\Light\OpenFile_16x.svg" />
+    <Content Include="Themes\Icons\Light\Paste_16x.svg" />
+    <Content Include="Themes\Icons\Light\Redo_16x.svg" />
+    <Content Include="Themes\Icons\Light\Undo_16x.svg" />
+    <Resource Include="Themes\Icons\Light\Undo.ico" />
+    <Resource Include="Themes\Icons\Light\Redo.ico" />
+    <Resource Include="Themes\Icons\Light\Paste.ico" />
+    <Resource Include="Themes\Icons\Light\OpenFile.ico" />
     <Resource Include="Themes\Icons\Delete.ico" />
-    <Resource Include="Themes\Icons\Cut.ico" />
+    <Resource Include="Themes\Icons\Light\Cut.ico" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

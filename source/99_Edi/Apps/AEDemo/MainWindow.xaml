@@ -10,7 +10,7 @@
     xmlns:enums="clr-namespace:TextEditLib.Enums;assembly=TextEditLib"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="MainWindow"
-    Width="525"
+    Width="725"
     Height="350"
     mc:Ignorable="d">
     <Grid>

@@ -5,6 +5,7 @@
     using ICSharpCode.AvalonEdit.Highlighting;
     using ICSharpCode.AvalonEdit.Rendering;
     using System;
+    using System.ComponentModel;
     using System.Windows;
     using System.Windows.Input;
     using System.Windows.Media;
@@ -78,6 +79,9 @@
         /// </summary>
         public TextEdit()
         {
+            if (DesignerProperties.GetIsInDesignMode(this))
+                return;
+
             Loaded += TextEdit_Loaded;
             Unloaded += TextEdit_Unloaded;
 

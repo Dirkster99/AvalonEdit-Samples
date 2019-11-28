@@ -1,5 +1,5 @@
 # AvalonEdit Samples
-Implements sample projects to demo the [AvalonEdit](https://github.com/icsharpcode/AvalonEdit) control with extensions.
+Implements sample projects to demo the [AvalonEdit](https://github.com/icsharpcode/AvalonEdit) control with extensions (see also [Dirkster99/AvalonEditHighlightingThemes](https://github.com/Dirkster99/AvalonEditHighlightingThemes)).
 
 # Demo Projects
 

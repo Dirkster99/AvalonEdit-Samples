@@ -22,6 +22,7 @@ namespace AEDemo.ViewModels
 
 		private readonly TextDocument _Document;
 		private readonly TextEditorOptions _TextOptions;
+		private readonly HighlightingManager _hlManager;
 
 		private bool _IsDirty;
 		private bool _IsReadOnly;
@@ -41,9 +42,18 @@ namespace AEDemo.ViewModels
 
 		#region ctors
 		/// <summary>
+		/// Class constructor from AvalonEdit <see cref="HighlightingManager"/> instance.
+		/// </summary>
+		public DocumentRootViewModel(HighlightingManager hlManager)
+			: this()
+		{
+			_hlManager = hlManager;
+		}
+
+		/// <summary>
 		/// Class constructor
 		/// </summary>
-		public DocumentRootViewModel()
+		protected DocumentRootViewModel()
 		{
 			_Document = new TextDocument(string.Empty);
 
@@ -167,10 +177,8 @@ namespace AEDemo.ViewModels
 		{
 			get
 			{
-				var hlManager = HighlightingManager.Instance;
-
-				if (hlManager != null)
-					return hlManager.HighlightingDefinitions;
+				if (_hlManager != null)
+					return _hlManager.HighlightingDefinitions;
 
 				return null;
 			}
@@ -489,9 +497,12 @@ namespace AEDemo.ViewModels
 					// Installing Folding Manager is invoked via HighlightingChange
 					// (so this works even when changing from test.XML to test1.XML)
 					HighlightingDefinition = null;
-					var hlManager = HighlightingManager.Instance;
-					string extension = System.IO.Path.GetExtension(paramFilePath);
-					HighlightingDefinition = hlManager.GetDefinitionByExtension(extension);
+
+					if (_hlManager != null)
+					{
+						string extension = System.IO.Path.GetExtension(paramFilePath);
+						HighlightingDefinition = _hlManager.GetDefinitionByExtension(extension);
+					}
 
 					return true;
 				}

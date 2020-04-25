@@ -40,7 +40,7 @@
 		/// </summary>
 		protected AppViewModel()
 		{
-			_demo = new DocumentRootViewModel();
+			_demo = new DocumentRootViewModel(HighlightingManager.Instance);
 		}
 		#endregion constructors
 

@@ -49,7 +49,7 @@
 		protected AppViewModel()
 		{
 			_AppTheme = new ThemeViewModel();
-			_demo = new DocumentRootViewModel();
+			_demo = new DocumentRootViewModel(GetService<IThemedHighlightingManager>());
 		}
 		#endregion constructors
 

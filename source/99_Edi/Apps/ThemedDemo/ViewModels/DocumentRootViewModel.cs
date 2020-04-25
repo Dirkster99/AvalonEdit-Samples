@@ -25,6 +25,7 @@ namespace ThemedDemo.ViewModels
 
 		private readonly TextDocument _Document;
 		private readonly TextEditorOptions _TextOptions;
+		private readonly IThemedHighlightingManager _hlManager;
 
 		private bool _IsDirty;
 		private bool _IsReadOnly;
@@ -44,9 +45,18 @@ namespace ThemedDemo.ViewModels
 
 		#region ctors
 		/// <summary>
+		/// Class constructor from AvalonEdit <see cref="HighlightingManager"/> instance.
+		/// </summary>
+		public DocumentRootViewModel(IThemedHighlightingManager hlManager)
+			: this()
+		{
+			_hlManager = hlManager;
+		}
+
+		/// <summary>
 		/// Class constructor
 		/// </summary>
-		public DocumentRootViewModel()
+		protected DocumentRootViewModel()
 		{
 			_Document = new TextDocument(string.Empty);
 
@@ -170,10 +180,8 @@ namespace ThemedDemo.ViewModels
 		{
 			get
 			{
-				var hlManager = GetService<IThemedHighlightingManager>();
-
-				if (hlManager != null)
-					return hlManager.HighlightingDefinitions;
+				if (_hlManager != null)
+					return _hlManager.HighlightingDefinitions;
 
 				return null;
 			}
@@ -492,9 +500,12 @@ namespace ThemedDemo.ViewModels
 					// Installing Folding Manager is invoked via HighlightingChange
 					// (so this works even when changing from test.XML to test1.XML)
 					HighlightingDefinition = null;
-					var hlManager = GetService<IThemedHighlightingManager>();
-					string extension = System.IO.Path.GetExtension(paramFilePath);
-					HighlightingDefinition = hlManager.GetDefinitionByExtension(extension);
+
+					if (_hlManager != null)
+					{
+						string extension = System.IO.Path.GetExtension(paramFilePath);
+						HighlightingDefinition = _hlManager.GetDefinitionByExtension(extension);
+					}
 
 					return true;
 				}

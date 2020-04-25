@@ -1,12 +1,14 @@
-﻿<Application x:Class="ThemedDemo.App"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             Startup="Application_Startup">
-    <Application.Resources>
-        <!-- Including this for the designer
-             Theming definition code in AppLifeCycleViewModel.CreateDefaultsSettings()
-             may define something else for runtime.
-        -->
-        <ResourceDictionary Source="/TextEditLib;component/Themes/LightIcons.xaml"/>
-    </Application.Resources>
+﻿<Application
+	x:Class="ThemedDemo.App"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	Startup="Application_Startup">
+	<Application.Resources>
+		<!--
+			Including this for the designer
+			Theming definition code in AppLifeCycleViewModel.CreateDefaultsSettings()
+			may define something else for runtime.
+		-->
+		<ResourceDictionary Source="/TextEditLib;component/Themes/LightIcons.xaml" />
+	</Application.Resources>
 </Application>

@@ -1,48 +1,48 @@
 namespace ThemedDemo.Converters
 {
-    using System;
-    using System.Globalization;
-    using System.Windows;
-    using System.Windows.Data;
+	using System;
+	using System.Globalization;
+	using System.Windows;
+	using System.Windows.Data;
 
-    [ValueConversion(typeof(object), typeof(Visibility))]
-    public class NullToVisibilityConverter : IValueConverter
-    {
-        #region fields
+	[ValueConversion(typeof(object), typeof(Visibility))]
+	public class NullToVisibilityConverter : IValueConverter
+	{
+		#region fields
 
-        #endregion fields
+		#endregion fields
 
-        #region ctors
-        /// <summary>
-        /// Class constructor
-        /// </summary>
-        public NullToVisibilityConverter()
-        {
-            NullValue = Visibility.Collapsed;
-            NotNullValue = Visibility.Visible;
-        }
-        #endregion ctors
+		#region ctors
+		/// <summary>
+		/// Class constructor
+		/// </summary>
+		public NullToVisibilityConverter()
+		{
+			NullValue = Visibility.Collapsed;
+			NotNullValue = Visibility.Visible;
+		}
+		#endregion ctors
 
-        #region properties
-        public Visibility NullValue { get; set; }
+		#region properties
+		public Visibility NullValue { get; set; }
 
-        public Visibility NotNullValue { get; set; }
-        #endregion properties
+		public Visibility NotNullValue { get; set; }
+		#endregion properties
 
-        #region methods
+		#region methods
 
-        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
-        {
-            if (value == null)
-                return NullValue;
+		public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+		{
+			if (value == null)
+				return NullValue;
 
-            return NotNullValue;
-        }
+			return NotNullValue;
+		}
 
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
-        {
-            throw new NotImplementedException();
-        }
-        #endregion methods
-    }
+		public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+		{
+			throw new NotImplementedException();
+		}
+		#endregion methods
+	}
 }

@@ -13,6 +13,7 @@
 		<Setter Property="Background" Value="{DynamicResource {x:Static reskeys:ResourceKeys.EditorBackground}}" />
 		<Setter Property="Foreground" Value="{DynamicResource {x:Static reskeys:ResourceKeys.EditorForeground}}" />
 		<Setter Property="LineNumbersForeground" Value="{DynamicResource {x:Static reskeys:ResourceKeys.EditorLineNumbersForeground}}" />
+		<Setter Property="EditorCurrentLineBorder" Value="{DynamicResource {x:Static reskeys:ResourceKeys.EditorCurrentLineBorderBrushKey}}" />
 		<Setter Property="VerticalScrollBarVisibility" Value="Auto" />
 		<Setter Property="HorizontalScrollBarVisibility" Value="Auto" />
 		<Setter Property="Template">
@@ -31,7 +32,7 @@
 							<Setter Property="SelectionBrush" Value="{DynamicResource {x:Static reskeys:ResourceKeys.EditorSelectionBrush}}" />
 							<Setter Property="SelectionBorder">
 								<Setter.Value>
-									<Pen Brush="{DynamicResource {x:Static reskeys:ResourceKeys.EditorSelectionBorder}}" Thickness="1" />
+									<Pen Brush="{DynamicResource {x:Static reskeys:ResourceKeys.EditorSelectionBorder}}" Thickness="0" />
 								</Setter.Value>
 							</Setter>
 							<Setter Property="SelectionCornerRadius" Value="0" />

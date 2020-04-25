@@ -55,9 +55,10 @@ namespace ThemedDemo.ViewModels
 							ApplyToDynamicResource(TextEditLib.Themes.ResourceKeys.EditorLineNumbersForeground, item.foregroundcolor);
 							break;
 
+//// Not changing selection color here since this should be controlled by current AccentColor via BindToMLib
 						case "Selection":
-							ApplyToDynamicResource(TextEditLib.Themes.ResourceKeys.EditorSelectionBrush, item.backgroundcolor);
-							ApplyToDynamicResource(TextEditLib.Themes.ResourceKeys.EditorSelectionBorder, item.bordercolor);
+////							ApplyToDynamicResource(TextEditLib.Themes.ResourceKeys.EditorSelectionBrush, item.backgroundcolor);
+////							ApplyToDynamicResource(TextEditLib.Themes.ResourceKeys.EditorSelectionBorder, item.bordercolor);
 							break;
 
 						case "Hyperlink":

@@ -135,6 +135,10 @@
     <Compile Include="ViewModels\ThemedDocumentViewModel.cs" />
     <Compile Include="ViewModels\ThemeDefinitionViewModel.cs" />
     <Compile Include="ViewModels\ThemeViewModel.cs" />
+    <Page Include="BindToMLib\TextEditLib_DarkLightBrushs.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="BindToMLib\UnitComboLib_DarkLightBrushs.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

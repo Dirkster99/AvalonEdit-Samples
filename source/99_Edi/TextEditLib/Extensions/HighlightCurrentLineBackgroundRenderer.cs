@@ -76,13 +76,16 @@ namespace TextEditLib.Extensions
 					borderPen.Freeze();
 			}
 
-			textView.EnsureVisualLines();
-			var currentLine = _Editor.Document.GetLineByOffset(_Editor.CaretOffset);
-
-			foreach (var rect in BackgroundGeometryBuilder.GetRectsForSegment(textView, currentLine))
+			if (_Editor.EditorCurrentLineBackground != null)
 			{
-				drawingContext.DrawRectangle(_Editor.EditorCurrentLineBackground, borderPen,
-											 new Rect(rect.Location, new Size(textView.ActualWidth, rect.Height)));
+				textView.EnsureVisualLines();
+				var currentLine = _Editor.Document.GetLineByOffset(_Editor.CaretOffset);
+
+				foreach (var rect in BackgroundGeometryBuilder.GetRectsForSegment(textView, currentLine))
+				{
+					drawingContext.DrawRectangle(_Editor.EditorCurrentLineBackground, borderPen,
+												 new Rect(rect.Location, new Size(textView.ActualWidth, rect.Height)));
+				}
 			}
 		}
 		#endregion methods

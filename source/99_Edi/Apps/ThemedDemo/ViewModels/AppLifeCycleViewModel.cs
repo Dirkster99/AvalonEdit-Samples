@@ -33,8 +33,9 @@
 			,new Uri("/MWindowLib;component/Themes/DarkTheme.xaml", UriKind.RelativeOrAbsolute)
 			,new Uri("/ThemedDemo;component/BindToMLib/MWindowLib/DarkLightBrushs.xaml", UriKind.RelativeOrAbsolute)
 			,new Uri("/TextEditLib;component/Themes/DarkBrushs.xaml", UriKind.RelativeOrAbsolute)
-			,new Uri("/UnitComboLib;component/Themes/DarkBrushs.xaml", UriKind.RelativeOrAbsolute)
 			,new Uri("/TextEditLib;component/Themes/DarkIcons.xaml", UriKind.RelativeOrAbsolute)
+			,new Uri("/ThemedDemo;component/BindToMLib/TextEditLib_DarkLightBrushs.xaml", UriKind.RelativeOrAbsolute)
+			,new Uri("/UnitComboLib;component/Themes/DarkBrushs.xaml", UriKind.RelativeOrAbsolute)
 			,new Uri("/ThemedDemo;component/BindToMLib/UnitComboLib_DarkLightBrushs.xaml", UriKind.RelativeOrAbsolute)
 		};
 
@@ -45,8 +46,9 @@
 			,new Uri("/MWindowLib;component/Themes/LightTheme.xaml", UriKind.RelativeOrAbsolute)
 			,new Uri("/ThemedDemo;component/BindToMLib/MWindowLib/DarkLightBrushs.xaml", UriKind.RelativeOrAbsolute)
 			,new Uri("/TextEditLib;component/Themes/LightBrushs.xaml", UriKind.RelativeOrAbsolute)
-			,new Uri("/UnitComboLib;component/Themes/LightBrushs.xaml", UriKind.RelativeOrAbsolute)
 			,new Uri("/TextEditLib;component/Themes/LightIcons.xaml", UriKind.RelativeOrAbsolute)
+			,new Uri("/ThemedDemo;component/BindToMLib/TextEditLib_DarkLightBrushs.xaml", UriKind.RelativeOrAbsolute)
+			,new Uri("/UnitComboLib;component/Themes/LightBrushs.xaml", UriKind.RelativeOrAbsolute)
 			,new Uri("/ThemedDemo;component/BindToMLib/UnitComboLib_DarkLightBrushs.xaml", UriKind.RelativeOrAbsolute)
 		};
 
@@ -173,6 +175,7 @@
 					default:
 						throw new ArgumentOutOfRangeException("WPF theme base:" + item[1] + " not supported.");
 				}
+
 				try
 				{
 					// Combine resources into one consistent model

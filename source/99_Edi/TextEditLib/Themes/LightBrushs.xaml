@@ -51,6 +51,13 @@
 
 	<SolidColorBrush
 		x:Key="{ComponentResourceKey TypeInTargetAssembly={x:Type reskeys:ResourceKeys},
+									 ResourceId=HighlightTextBrushKey}"
+		options:Freeze="true"
+		Opacity="1"
+		Color="Black" />
+
+	<SolidColorBrush
+		x:Key="{ComponentResourceKey TypeInTargetAssembly={x:Type reskeys:ResourceKeys},
 									 ResourceId=EditorNonPrintableCharacterBrush}"
 		options:Freeze="true"
 		Color="#3F8080FF" />

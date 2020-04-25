@@ -3,7 +3,7 @@
 	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 	xmlns:MLib_reskeys="clr-namespace:MLib.Themes;assembly=MLib"
 	xmlns:options="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options"
-	xmlns:reskeys="clr-namespace:UnitComboLib.Themes;assembly=UnitComboLib">
+	xmlns:reskeys="clr-namespace:TextEditLib.Themes;assembly=TextEditLib">
 
 	<!--
 		Accent Color Brush Definition
@@ -17,17 +17,18 @@
 		options:Freeze="true"
 		Color="{DynamicResource {x:Static MLib_reskeys:ResourceKeys.ControlAccentColorKey}}" />
 
-	<!--  This Brush is used to highlight the ToggleButton on MouseOver  -->
 	<SolidColorBrush
 		x:Key="{ComponentResourceKey TypeInTargetAssembly={x:Type reskeys:ResourceKeys},
-									 ResourceId=UnitCmbHighlighColorBrushKey}"
+									 ResourceId=EditorSelectionBrush}"
 		options:Freeze="true"
+		Opacity="0.25"
 		Color="{DynamicResource {x:Static MLib_reskeys:ResourceKeys.ControlAccentColorKey}}" />
 
 	<SolidColorBrush
 		x:Key="{ComponentResourceKey TypeInTargetAssembly={x:Type reskeys:ResourceKeys},
-									 ResourceId=UnitCmbPressedBrushKey}"
+									 ResourceId=EditorCurrentLineBorderBrushKey}"
 		options:Freeze="true"
+		Opacity="0.5"
 		Color="{DynamicResource {x:Static MLib_reskeys:ResourceKeys.ControlAccentColorKey}}" />
 
 </ResourceDictionary>

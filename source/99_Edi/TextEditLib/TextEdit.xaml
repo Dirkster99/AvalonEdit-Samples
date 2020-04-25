@@ -137,8 +137,9 @@
 													Margin="3,0"
 													Padding="0"
 													HorizontalAlignment="Stretch"
-													VerticalAlignment="Center"
-													BorderBrush="Transparent"
+													VerticalAlignment="Stretch"
+													Background="{Binding ElementName=PART_HorizontalScrollBar, Path=Background}"
+													BorderBrush="{Binding ElementName=PART_HorizontalScrollBar, Path=Background}"
 													BorderThickness="1"
 													DataContext="{Binding SizeUnitLabel}"
 													FontSize="10"
@@ -167,17 +168,17 @@
 											<DockPanel
 												Grid.Row="1"
 												Grid.Column="1"
-												Background="White"
+												Background="{Binding ElementName=PART_HorizontalScrollBar, Path=Background}"
 												LastChildFill="false">
 												<Rectangle
 													Width="1"
 													DockPanel.Dock="Left"
-													Fill="White"
+													Fill="{Binding ElementName=PART_HorizontalScrollBar, Path=Background}"
 													Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}" />
 												<Rectangle
 													Height="1"
 													DockPanel.Dock="Top"
-													Fill="White"
+													Fill="{Binding ElementName=PART_HorizontalScrollBar, Path=Background}"
 													Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}" />
 											</DockPanel>
 										</Grid>

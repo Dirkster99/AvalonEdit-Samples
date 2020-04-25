@@ -123,6 +123,7 @@
     <Compile Include="Behaviors\SelectionChangedBehavior.cs" />
     <Compile Include="Converters\NullToVisibilityConverter.cs" />
     <Compile Include="Converters\BoolToStringPropConverter.cs" />
+    <Compile Include="HighLightingManagerAdapter.cs" />
     <Compile Include="Models\AppCore.cs" />
     <Compile Include="Models\SettingDefaults.cs" />
     <Compile Include="Models\ThemeDefinition.cs" />
@@ -131,7 +132,7 @@
     <Compile Include="ViewModels\Base\ModelBase.cs" />
     <Compile Include="ViewModels\Base\RelayCommand.cs" />
     <Compile Include="ViewModels\Base\ViewModelBase.cs" />
-    <Compile Include="ViewModels\DocumentRootViewModel.cs" />
+    <Compile Include="ViewModels\ThemedDocumentViewModel.cs" />
     <Compile Include="ViewModels\ThemeDefinitionViewModel.cs" />
     <Compile Include="ViewModels\ThemeViewModel.cs" />
     <Page Include="BindToMLib\UnitComboLib_DarkLightBrushs.xaml">

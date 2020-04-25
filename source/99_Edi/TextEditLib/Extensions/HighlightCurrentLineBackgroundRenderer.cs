@@ -1,10 +1,10 @@
+using ICSharpCode.AvalonEdit;
+using ICSharpCode.AvalonEdit.Rendering;
+using System.Windows.Media;
+using System.Windows;
+
 namespace TextEditLib.Extensions
 {
-	using ICSharpCode.AvalonEdit;
-	using ICSharpCode.AvalonEdit.Rendering;
-	using System.Windows.Media;
-	using System.Windows;
-
 	/// <summary>
 	/// AvalonEdit: highlight current line even when not focused
 	/// 

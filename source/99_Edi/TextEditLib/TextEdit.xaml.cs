@@ -1,17 +1,17 @@
-﻿namespace TextEditLib
-{
-	using ICSharpCode.AvalonEdit;
-	using ICSharpCode.AvalonEdit.Folding;
-	using ICSharpCode.AvalonEdit.Highlighting;
-	using ICSharpCode.AvalonEdit.Rendering;
-	using System;
-	using System.ComponentModel;
-	using System.Windows;
-	using System.Windows.Input;
-	using System.Windows.Media;
-	using TextEditLib.Extensions;
-	using TextEditLib.Foldings;
+﻿using ICSharpCode.AvalonEdit;
+using ICSharpCode.AvalonEdit.Folding;
+using ICSharpCode.AvalonEdit.Highlighting;
+using ICSharpCode.AvalonEdit.Rendering;
+using System;
+using System.ComponentModel;
+using System.Windows;
+using System.Windows.Input;
+using System.Windows.Media;
+using TextEditLib.Extensions;
+using TextEditLib.Foldings;
 
+namespace TextEditLib
+{
 	/// <summary>
 	/// Implements an AvalonEdit control textedit control with extensions.
 	/// </summary>

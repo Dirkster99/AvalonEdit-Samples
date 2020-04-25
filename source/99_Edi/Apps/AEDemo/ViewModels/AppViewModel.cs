@@ -1,11 +1,12 @@
-﻿namespace AEDemo.ViewModels
-{
-	using Base;
-	using ICSharpCode.AvalonEdit.Highlighting;
-	using Microsoft.Win32;
-	using System;
-	using System.Windows.Input;
+﻿using AEDemo.ViewModels.Base;
+using ICSharpCode.AvalonEdit.Highlighting;
+using Microsoft.Win32;
+using System;
+using System.Windows.Input;
+using TextEditLib.ViewModels;
 
+namespace AEDemo.ViewModels
+{
 	/// <summary>
 	/// Main ViewModel vlass that manages session start-up, life span, and shutdown
 	/// of the application.
@@ -22,7 +23,7 @@
 		private ICommand _OpenFileCommand;
 		private IHighlightingDefinition _HighlightingDefinition;
 		private ICommand _HighlightingChangeCommand;
-		private readonly DocumentRootViewModel _demo;
+		private readonly DocumentViewModel _demo;
 		#endregion private fields
 
 		#region constructors
@@ -40,7 +41,7 @@
 		/// </summary>
 		protected AppViewModel()
 		{
-			_demo = new DocumentRootViewModel(HighlightingManager.Instance);
+			_demo = new DocumentViewModel(new HighLightingManagerAdapter(HighlightingManager.Instance));
 		}
 		#endregion constructors
 
@@ -56,7 +57,7 @@
 		/// <summary>
 		/// Gets the demo viewmodel and all its properties and commands
 		/// </summary>
-		public DocumentRootViewModel DocumentRoot
+		public DocumentViewModel DocumentRoot
 		{
 			get
 			{

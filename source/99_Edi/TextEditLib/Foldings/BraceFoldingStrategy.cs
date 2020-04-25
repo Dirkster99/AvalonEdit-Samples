@@ -1,9 +1,9 @@
+using ICSharpCode.AvalonEdit.Document;
+using ICSharpCode.AvalonEdit.Folding;
+using System.Collections.Generic;
+
 namespace TextEditLib.Foldings
 {
-	using ICSharpCode.AvalonEdit.Document;
-	using ICSharpCode.AvalonEdit.Folding;
-	using System.Collections.Generic;
-
 	/// <summary>
 	/// Allows producing foldings from a document based on braces.
 	/// </summary>

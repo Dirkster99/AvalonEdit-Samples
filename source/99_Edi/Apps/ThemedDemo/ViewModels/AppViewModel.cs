@@ -30,7 +30,7 @@
 		private ICommand _OpenFileCommand;
 		private IHighlightingDefinition _HighlightingDefinition;
 		private ICommand _HighlightingChangeCommand;
-		private readonly DocumentRootViewModel _demo;
+		private readonly ThemedDocumentViewModel _demo;
 		#endregion private fields
 
 		#region constructors
@@ -49,7 +49,7 @@
 		protected AppViewModel()
 		{
 			_AppTheme = new ThemeViewModel();
-			_demo = new DocumentRootViewModel(GetService<IThemedHighlightingManager>());
+			_demo = new ThemedDocumentViewModel(new HighLightingManagerAdapter(GetService<IThemedHighlightingManager>()));
 		}
 		#endregion constructors
 
@@ -149,7 +149,7 @@
 		/// <summary>
 		/// Gets the demo viewmodel and all its properties and commands
 		/// </summary>
-		public DocumentRootViewModel DocumentRoot
+		public ThemedDocumentViewModel DocumentRoot
 		{
 			get
 			{

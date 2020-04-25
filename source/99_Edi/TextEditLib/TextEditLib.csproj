@@ -84,6 +84,7 @@
     <Compile Include="Enums\ToggleEditorOption.cs" />
     <Compile Include="Extensions\HighlightCurrentLineBackgroundRenderer.cs" />
     <Compile Include="Foldings\BraceFoldingStrategy.cs" />
+    <Compile Include="Interfaces\IHighLightingManagerAdapter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -102,6 +103,9 @@
     <Compile Include="TextEdit.xaml.cs">
       <DependentUpon>TextEdit.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\Base\RelayCommand.cs" />
+    <Compile Include="ViewModels\Base\ViewModelBase.cs" />
+    <Compile Include="ViewModels\DocumentViewModel.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

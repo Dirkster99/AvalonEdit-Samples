@@ -1,7 +1,7 @@
+using System.Windows.Input;
+
 namespace TextEditLib
 {
-	using System.Windows.Input;
-
 	/// <summary>
 	/// Static class that contains the commands that can be executed by the <seealso cref="EdiTextEditor"/> control.
 	/// </summary>

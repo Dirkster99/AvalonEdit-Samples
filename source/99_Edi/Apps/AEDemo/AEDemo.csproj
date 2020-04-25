@@ -107,7 +107,7 @@
     <Compile Include="ViewModels\AppViewModel.cs" />
     <Compile Include="ViewModels\Base\RelayCommand.cs" />
     <Compile Include="ViewModels\Base\ViewModelBase.cs" />
-    <Compile Include="ViewModels\DocumentRootViewModel.cs" />
+    <Compile Include="ViewModels\HighLightingManagerAdapter.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

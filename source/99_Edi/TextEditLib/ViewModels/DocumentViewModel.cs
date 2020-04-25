@@ -1,31 +1,32 @@
-namespace ThemedDemo.ViewModels
-{
-	using HL.Interfaces;
-	using ICSharpCode.AvalonEdit;
-	using ICSharpCode.AvalonEdit.Document;
-	using ICSharpCode.AvalonEdit.Highlighting;
-	using ICSharpCode.AvalonEdit.Utils;
-	using System.Collections.Generic;
-	using System.Collections.ObjectModel;
-	using System.IO;
-	using System.Text;
-	using System.Windows;
-	using System.Windows.Input;
-	using System.Windows.Media;
-	using TextEditLib.Enums;
-	using ThemedDemo.ViewModels.Base;
-	using UnitComboLib.Models.Unit;
-	using UnitComboLib.Models.Unit.Screen;
-	using UnitComboLib.ViewModels;
+using ICSharpCode.AvalonEdit.Document;
+using ICSharpCode.AvalonEdit.Highlighting;
+using ICSharpCode.AvalonEdit.Utils;
+using System.Collections.ObjectModel;
+using System.IO;
+using System.Text;
+using System.Windows.Input;
+using UnitComboLib.ViewModels;
+using UnitComboLib.Models.Unit;
+using UnitComboLib.Models.Unit.Screen;
+using System.Collections.Generic;
+using ICSharpCode.AvalonEdit;
+using TextEditLib.Enums;
+using TextEditLib.Interfaces;
+using TexteditLib.ViewModels.Base;
 
-	public class DocumentRootViewModel : Base.ViewModelBase
+namespace TextEditLib.ViewModels
+{
+	/// <summary>
+	/// Implements a viewmodel for the <see cref="TextEditor"/> in AvalonEdit.
+	/// </summary>
+	public class DocumentViewModel : TexteditLib.ViewModels.Base.ViewModelBase
 	{
 		#region fields
 		private string _FilePath;
 
 		private readonly TextDocument _Document;
 		private readonly TextEditorOptions _TextOptions;
-		private readonly IThemedHighlightingManager _hlManager;
+		private readonly IHighLightingManagerAdapter _hlManager;
 
 		private bool _IsDirty;
 		private bool _IsReadOnly;
@@ -47,7 +48,7 @@ namespace ThemedDemo.ViewModels
 		/// <summary>
 		/// Class constructor from AvalonEdit <see cref="HighlightingManager"/> instance.
 		/// </summary>
-		public DocumentRootViewModel(IThemedHighlightingManager hlManager)
+		public DocumentViewModel(IHighLightingManagerAdapter hlManager)
 			: this()
 		{
 			_hlManager = hlManager;
@@ -56,7 +57,7 @@ namespace ThemedDemo.ViewModels
 		/// <summary>
 		/// Class constructor
 		/// </summary>
-		protected DocumentRootViewModel()
+		protected DocumentViewModel()
 		{
 			_Document = new TextDocument(string.Empty);
 
@@ -86,7 +87,7 @@ namespace ThemedDemo.ViewModels
 		public bool IsDirty
 		{
 			get { return _IsDirty; }
-			
+
 			set
 			{
 				if (_IsDirty != value)
@@ -458,14 +459,14 @@ namespace ThemedDemo.ViewModels
 		}
 		#endregion properties
 
-		#region methods
+		#region methods		
 		/// <summary>
 		/// Loads a text document from the persistance of the file system
 		/// and updates all corresponding states in this viewmodel.
 		/// </summary>
 		/// <param name="paramFilePath"></param>
 		/// <returns></returns>
-		internal bool LoadDocument(string paramFilePath)
+		public bool LoadDocument(string paramFilePath)
 		{
 			if (File.Exists(paramFilePath))
 			{
@@ -626,106 +627,7 @@ namespace ThemedDemo.ViewModels
 			return false;
 		}
 		#endregion ToggleEditorOption
-
-		/// <summary>
-		/// Invoke this method to apply a change of theme to the content of the document
-		/// (eg: Adjust the highlighting colors when changing from "Dark" to "Light"
-		///      WITH current text document loaded.)
-		/// </summary>
-		internal void OnAppThemeChanged(IThemedHighlightingManager hlManager)
-		{
-			if (hlManager == null)
-				return;
-
-			// Does this highlighting definition have an associated highlighting theme?
-			if (hlManager.CurrentTheme.HlTheme != null)
-			{
-				// A highlighting theme with GlobalStyles?
-				// Apply these styles to the resource keys of the editor
-				foreach (var item in hlManager.CurrentTheme.HlTheme.GlobalStyles)
-				{
-					switch (item.TypeName)
-					{
-						case "DefaultStyle":
-							ApplyToDynamicResource(TextEditLib.Themes.ResourceKeys.EditorBackground, item.backgroundcolor);
-							ApplyToDynamicResource(TextEditLib.Themes.ResourceKeys.EditorForeground, item.foregroundcolor);
-							break;
-
-						case "CurrentLineBackground":
-							ApplyToDynamicResource(TextEditLib.Themes.ResourceKeys.EditorCurrentLineBackgroundBrushKey, item.backgroundcolor);
-							ApplyToDynamicResource(TextEditLib.Themes.ResourceKeys.EditorCurrentLineBorderBrushKey, item.bordercolor);
-							break;
-
-						case "LineNumbersForeground":
-							ApplyToDynamicResource(TextEditLib.Themes.ResourceKeys.EditorLineNumbersForeground, item.foregroundcolor);
-							break;
-
-						case "Selection":
-							ApplyToDynamicResource(TextEditLib.Themes.ResourceKeys.EditorSelectionBrush, item.backgroundcolor);
-							ApplyToDynamicResource(TextEditLib.Themes.ResourceKeys.EditorSelectionBorder, item.bordercolor);
-							break;
-
-						case "Hyperlink":
-							ApplyToDynamicResource(TextEditLib.Themes.ResourceKeys.EditorLinkTextBackgroundBrush, item.backgroundcolor);
-							ApplyToDynamicResource(TextEditLib.Themes.ResourceKeys.EditorLinkTextForegroundBrush, item.foregroundcolor);
-							break;
-
-						case "NonPrintableCharacter":
-							ApplyToDynamicResource(TextEditLib.Themes.ResourceKeys.EditorNonPrintableCharacterBrush, item.foregroundcolor);
-							break;
-
-						default:
-							throw new System.ArgumentOutOfRangeException("GlobalStyle named '{0}' is not supported.", item.TypeName);
-					}
-				}
-			}
-
-			// 1st try: Find highlighting based on currently selected highlighting
-			// The highlighting name may be the same as before, but the highlighting theme has just changed
-			if (HighlightingDefinition != null)
-			{
-				// Reset property for currently select highlighting definition
-				HighlightingDefinition = hlManager.GetDefinition(HighlightingDefinition.Name);
-
-				if (HighlightingDefinition != null)
-					return;
-			}
-
-			// 2nd try: Find highlighting based on extension of file currenlty being viewed
-			if (string.IsNullOrEmpty(FilePath))
-				return;
-
-			string extension = System.IO.Path.GetExtension(FilePath);
-
-			if (string.IsNullOrEmpty(extension))
-				return;
-
-			// Reset property for currently select highlighting definition
-			HighlightingDefinition = hlManager.GetDefinitionByExtension(extension);
-		}
-
-		/// <summary>
-		/// Re-define an existing <seealso cref="SolidColorBrush"/> and backup the originial color
-		/// as it was before the application of the custom coloring.
-		/// </summary>
-		/// <param name="key"></param>
-		/// <param name="newColor"></param>
-		private void ApplyToDynamicResource(ComponentResourceKey key, Color? newColor)
-		{
-			if (Application.Current.Resources[key] == null || newColor == null)
-				return;
-
-			// Re-coloring works with SolidColorBrushs linked as DynamicResource
-			if (Application.Current.Resources[key] is SolidColorBrush)
-			{
-				//backupDynResources.Add(resourceName);
-
-				var newColorBrush = new SolidColorBrush((Color)newColor);
-				newColorBrush.Freeze();
-
-				Application.Current.Resources[key] = newColorBrush;
-			}
-		}
 		#endregion methods
 	}
 }
+

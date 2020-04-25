@@ -81,6 +81,7 @@ namespace ThemedDemo.ViewModels
 			{
 				// Reset property for currently select highlighting definition
 				HighlightingDefinition = hlManager.GetDefinition(HighlightingDefinition.Name);
+				NotifyPropertyChanged(() => this.HighlightingDefinitions);
 
 				if (HighlightingDefinition != null)
 					return;
@@ -97,6 +98,7 @@ namespace ThemedDemo.ViewModels
 
 			// Reset property for currently select highlighting definition
 			HighlightingDefinition = hlManager.GetDefinitionByExtension(extension);
+			NotifyPropertyChanged(() => this.HighlightingDefinitions);
 		}
 
 		/// <summary>

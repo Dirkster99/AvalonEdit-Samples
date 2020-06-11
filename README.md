@@ -32,6 +32,14 @@ and adds a custom scalling control from the
   - Points or  
   - Percentage scales.
 
+## 17 Switch Demo
+
+The [17_SwitchDemo](https://github.com/Dirkster99/AvalonEdit-Samples/tree/master/source/17_SwitchDemo) project
+is a small prototype app that reviews how AvalonEdit will cope if we use **2 different Document** bindings
+and switch between them whenever we like to. I needed this feature because I wanted to kind of overlay
+2 different displays when showing highlighting for different lines (comparing) or editing the text
+when a user would wish to re-align different sections of text in [Ähnlich](https://github.com/Dirkster99/Aehnlich).
+
 ## 20 Highlight Current Line Renderer
 
 The [20_HighlightCurrentLineRenderer](https://github.com/Dirkster99/AvalonEdit-Samples/tree/master/source/20_HighlightCurrentLineRenderer)

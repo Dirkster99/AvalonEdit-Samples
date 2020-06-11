@@ -1,30 +1,8 @@
 
 # Overview
 
-This demo project implements the basic features of the 00_MVVMDemo project and adds the
-
-- Font Scaling Feature
-
-to it.
-
-- Use The UnitComboBox in the left/lower corner of the MainWindow to change the FontSize
-  according to:
-  - Points or
-  - Percentage scales.
-
-- Use the Scale up/scale down (two finger) gesture on your touch-pad
-  or 
-
-- Press the Control Key and mouse wheel to zoom text size in or out.
-
-## 100% Zoom Scale
-![](screenshot.png)
-
-## Reviewing Zoom Scales
-![](screenshot1.png)
-
-## Selecting Point or Percent Base
-![](screenshot2.png)
-
-## 24 Points Zoom Scale
-![](screenshot3.png)
+This project
+is a small prototype app that reviews how AvalonEdit will cope if we use **2 different Document** bindings
+and switch between them whenever we like to. I needed this feature because I wanted to kind of overlay
+2 different displays when showing highlighting for different lines (comparing) or editing the text
+when a user would wish to re-align different sections of text in [Ähnlich](https://github.com/Dirkster99/Aehnlich).
